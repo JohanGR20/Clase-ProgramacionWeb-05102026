@@ -1,0 +1,257 @@
+/* =====================================================
+   GESTOR DE USUARIOS - DISEÑO MINIMALISTA Y ELEGANTE
+   ===================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Colores de fondo y superficie */
+  --bg-color: #f4f5f7;
+  --card-bg: #ffffff;
+  
+  /* Textos */
+  --text-main: #2d3748;
+  --text-light: #718096;
+  
+  /* Colores vivos pero sobrios (Índigo y Cerceta) */
+  --primary: #4c51bf; 
+  --primary-hover: #434190;
+  --secondary: #319795; 
+  --secondary-hover: #285e61;
+  --danger: #e53e3e;
+  --danger-hover: #c53030;
+  
+  /* Bordes y Sombras */
+  --border-color: #e2e8f0;
+  --radius: 8px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  line-height: 1.6;
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 24px;
+  font-size: 1.75rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+h3 {
+  font-weight: 500;
+  margin: 32px 0 16px;
+  width: 100%;
+  max-width: 800px;
+  color: var(--text-main);
+}
+
+/* ---------- FORMULARIO ---------- */
+#formUsuario {
+  display: flex;
+  gap: 12px;
+  background: var(--card-bg);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 24px;
+  border: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+#formUsuario:focus-within {
+  border-color: #cbd5e0;
+}
+
+#formUsuario input {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  color: var(--text-main);
+  outline: none;
+  background-color: #f8fafc;
+  transition: all 0.3s ease;
+}
+
+#formUsuario input:focus {
+  background-color: var(--card-bg);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(76, 81, 191, 0.15);
+}
+
+/* ---------- BOTONES ---------- */
+button {
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+#formUsuario button {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+#formUsuario button:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(76, 81, 191, 0.2);
+}
+
+/* ---------- IMPORTAR Y DESCARGAR ---------- */
+#importarJSON {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  width: 100%;
+  max-width: 800px;
+  margin-bottom: 12px;
+}
+
+#importarJSON::file-selector-button {
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-color);
+  background: var(--card-bg);
+  color: var(--text-main);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-right: 12px;
+}
+
+#importarJSON::file-selector-button:hover {
+  background: #edf2f7;
+}
+
+#descargar {
+  background-color: var(--secondary);
+  color: #ffffff;
+  align-self: flex-start;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 800px;
+  display: block;
+}
+
+#descargar:hover {
+  background-color: var(--secondary-hover);
+  box-shadow: 0 4px 12px rgba(49, 151, 149, 0.2);
+}
+
+/* ---------- TABLA ---------- */
+table {
+  width: 100%;
+  max-width: 800px;
+  background: var(--card-bg);
+  border-collapse: collapse;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+thead {
+  background-color: var(--primary);
+  color: #ffffff;
+}
+
+th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 0.95rem;
+}
+
+td:first-child {
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: #f7fafc;
+}
+
+/* Celdas editables */
+td[contenteditable="true"] {
+  transition: all 0.2s;
+  outline: none;
+  border-radius: 4px;
+}
+
+td[contenteditable="true"]:hover {
+  background-color: #edf2f7;
+}
+
+td[contenteditable="true"]:focus {
+  background-color: #ffffff;
+  box-shadow: inset 0 0 0 2px var(--secondary);
+}
+
+/* Botón Eliminar */
+td button {
+  background-color: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+td button:hover {
+  background-color: var(--danger);
+  color: #ffffff;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  #formUsuario {
+    flex-direction: column;
+  }
+  
+  th, td {
+    padding: 12px;
+  }
+  
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
